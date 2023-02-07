@@ -1,0 +1,17 @@
+.LanguageSelect-Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+}
+
+.LanguageSelect-WorldIcon {
+    margin-right: 5px;
+}
+
+.LanguageSelect-Select {
+    margin-left: 5px;
+    font-size: 20px;
+}

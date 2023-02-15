@@ -1,8 +1,19 @@
-.App-header {
+* {
+    font-family: 'Montserrat' !important;
+    font-size: 10px;
+}
+
+body{
     background-color: #292C33;
+}
+
+.App-header {
     padding: 10px;
-    position: absolute;
     width: 100%;
     top:0;
     left:0;
+}
+
+.App-body {
+    display: flex;
 }

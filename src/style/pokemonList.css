@@ -1,0 +1,10 @@
+.PokemonList-List {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.PokemonList-List li {
+    margin-right: 3rem;
+    margin-bottom: 2rem;
+}

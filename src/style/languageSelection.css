@@ -13,5 +13,9 @@
 
 .LanguageSelect-Select {
     margin-left: 5px;
-    font-size: 20px;
+    font-size: 2rem;
+}
+
+.LanguageSelect-Select option {
+    font-size: 2rem;
 }

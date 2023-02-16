@@ -1,0 +1,11 @@
+.SearchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SearchBar input{
+    width: 95%;
+    height: 3rem;
+    font-size: 1.7rem;
+}

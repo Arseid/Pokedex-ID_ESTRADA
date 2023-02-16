@@ -1,19 +1,9 @@
 .Header-Container {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.Header-Logo {
-    display: flex;
-    width: fit-content;
-    height: fit-content;
-}
-
 .Header-LanguageSelection {
-    display: flex;
-    width: fit-content;
-    height: fit-content;
     margin-right: 20px;
 }

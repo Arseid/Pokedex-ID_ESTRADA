@@ -1,7 +1,7 @@
 import Header from "./components/header/header";
 import "./style/App.css";
-import PokemonList from "./components/pokemonlist/pokemonList";
 import React from "react";
+import PokemonListPage from "./components/body/pokemonListPage";
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
                 <Header handleChange={handleChange}/>
             </header>
             <div className="App-body">
-                <PokemonList selectedLanguage={selectedLanguage}/>
+                <PokemonListPage selectedLanguage={selectedLanguage}/>
             </div>
         </div>
     );

@@ -2,11 +2,12 @@ import React from "react";
 import "../../style/pokemonList.css";
 import pokemonRefs from "../../ressources/pokemons.json";
 import PokemonCard from "./pokemonCard";
+import Youtube from 'react-youtube';
 
 const PokemonList = ({selectedLanguage, searchInputValue}) => {
 
-    //EASTER EGG Roxane Girlfriend
-    const easterEggGf = `https://www.youtube.com/watch?v=3T1c7GkzRQQ`;
+    //EASTER EGG Roxane
+    const easterEggGf = `3T1c7GkzRQQ`;
 
     const createPokemonList = pokemonRefs.map((pokemon) => (
         <PokemonCard name={pokemon.names} types={pokemon.types} number={pokemon.id}
@@ -24,7 +25,7 @@ const PokemonList = ({selectedLanguage, searchInputValue}) => {
         }
         {searchInputValue==='roxane'||searchInputValue==='Roxane'
             ?
-            <iframe width="560" height="315" src={easterEggGf} title="YouTube video player"/>
+            <Youtube videoId={easterEggGf}/>
             :
             ''
         }

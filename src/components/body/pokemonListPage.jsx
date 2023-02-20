@@ -5,7 +5,29 @@ import '../../style/pokemonListPage.css';
 
 const PokemonListPage = ({selectedLanguage}) => {
 
+    const [isLoading, setIsLoading] = React.useState(false);
+    const pokemonListURL = 'https://pokedex-jgabriele.vercel.app/pokemons.json';
+    const pokemonTypesURL = 'https://pokedex-jgabriele.vercel.app/types.json';
+    const [pokemonList, setPokemonList] = React.useState([]);
+    const [pokemonTypes, setPokemonTypes] = React.useState({});
     const [searchInputValue, setSearchInputValue] = React.useState('');
+
+    React.useEffect(() => {
+        setIsLoading(true);
+        fetch(pokemonListURL)
+            .then((response) => response.json())
+            .then((response) => setPokemonList(response))
+            .catch((e) => {
+                console.log("Error"+e);
+            });
+        fetch(pokemonTypesURL)
+            .then((response) => response.json())
+            .then((response) => setPokemonTypes(response))
+            .catch((e) => {
+                console.log("Error"+e);
+            });
+        setIsLoading(false);
+    },[]);
 
     const searchPokemon = (e) => {
         setSearchInputValue(e.target.value);
@@ -13,7 +35,8 @@ const PokemonListPage = ({selectedLanguage}) => {
 
     return <div className='PokemonListPage'>
         <SearchBar searchInputValue={searchInputValue} searchPokemon={searchPokemon}/>
-        <PokemonList selectedLanguage={selectedLanguage} searchInputValue={searchInputValue}/>
+        <PokemonList selectedLanguage={selectedLanguage} searchInputValue={searchInputValue}
+                     pokemonList={pokemonList} pokemonTypes={pokemonTypes}/>
     </div>;
 };
 

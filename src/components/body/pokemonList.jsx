@@ -31,43 +31,61 @@ const PokemonList = ({selectedLanguage, searchInputValue}) => {
             if (searchValue!=='roxane'){
                 if (selectedLanguage==='fr'){
                     pokemonRefs.forEach((pokemon) => {
-                        if (pokemon.names.fr.toLowerCase().includes(searchValue))
+                        if (pokemon.names['fr'].toLowerCase().includes(searchValue))
                             filteredPokemonList.push(pokemon)
                     })
                 }
                 else if (selectedLanguage==='en') {
                     pokemonRefs.forEach((pokemon) => {
-                        if (pokemon.names.en.toLowerCase().includes(searchValue))
+                        if (pokemon.names['en'].toLowerCase().includes(searchValue))
                             filteredPokemonList.push(pokemon)
                     })
                 }
                 else if (selectedLanguage==='es') {
                     pokemonRefs.forEach((pokemon) => {
-                        if (pokemon.names.es.toLowerCase().includes(searchValue))
+                        if (pokemon.names['es'].toLowerCase().includes(searchValue))
                             filteredPokemonList.push(pokemon)
                     })
                 }
                 else if (selectedLanguage==='it') {
                     pokemonRefs.forEach((pokemon) => {
-                        if (pokemon.names.it.toLowerCase().includes(searchValue))
+                        if (pokemon.names['it'].toLowerCase().includes(searchValue))
                             filteredPokemonList.push(pokemon)
                     })
                 }
                 else if (selectedLanguage==='ja') {
                     pokemonRefs.forEach((pokemon) => {
-                        if (pokemon.names.ja.toLowerCase().includes(searchValue))
+                        if (pokemon.names['ja'].toLowerCase().includes(searchValue))
                             filteredPokemonList.push(pokemon)
                     })
                 }
                 else if (selectedLanguage==='roomaji') {
                     pokemonRefs.forEach((pokemon) => {
-                        if (pokemon.names.roomaji.toLowerCase().includes(searchValue))
+                        if (pokemon.names['roomaji'].toLowerCase().includes(searchValue))
                             filteredPokemonList.push(pokemon)
                     })
                 }
                 else if (selectedLanguage==='ko') {
                     pokemonRefs.forEach((pokemon) => {
-                        if (pokemon.names.ko.toLowerCase().includes(searchValue))
+                        if (pokemon.names['ko'].toLowerCase().includes(searchValue))
+                            filteredPokemonList.push(pokemon)
+                    })
+                }
+                else if (selectedLanguage==='ja-Hrkt') {
+                    pokemonRefs.forEach((pokemon) => {
+                        if (pokemon.names['ja-Hrkt'].toLowerCase().includes(searchValue))
+                            filteredPokemonList.push(pokemon)
+                    })
+                }
+                else if (selectedLanguage==='zh-Hant') {
+                    pokemonRefs.forEach((pokemon) => {
+                        if (pokemon.names['zh-Hant'].toLowerCase().includes(searchValue))
+                            filteredPokemonList.push(pokemon)
+                    })
+                }
+                else if (selectedLanguage==='zh-Hans') {
+                    pokemonRefs.forEach((pokemon) => {
+                        if (pokemon.names['zh-Hans'].toLowerCase().includes(searchValue))
                             filteredPokemonList.push(pokemon)
                     })
                 }

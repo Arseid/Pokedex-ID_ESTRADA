@@ -15,8 +15,6 @@ const PokemonCard = ({number, name, imageSrc, types, selectedLanguage, pokemonTy
             })
         })
 
-        console.log(chosenTypes);
-
         showTypes=chosenTypes.map((type) => (
             <span>
             <span style={{backgroundColor: type['backgroundColor']}} className="PokemonCard-Type">

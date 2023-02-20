@@ -35,8 +35,14 @@ const PokemonListPage = ({selectedLanguage}) => {
 
     return <div className='PokemonListPage'>
         <SearchBar searchInputValue={searchInputValue} searchPokemon={searchPokemon}/>
-        <PokemonList selectedLanguage={selectedLanguage} searchInputValue={searchInputValue}
-                     pokemonList={pokemonList} pokemonTypes={pokemonTypes}/>
+        {isLoading ?
+            <div className="PokemonListPage-LoaderContainer">
+                <div></div>
+            </div>
+            :
+            <PokemonList selectedLanguage={selectedLanguage} searchInputValue={searchInputValue}
+                         pokemonList={pokemonList} pokemonTypes={pokemonTypes}/>
+        }
     </div>;
 };
 

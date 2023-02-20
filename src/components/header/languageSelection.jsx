@@ -14,6 +14,9 @@ const LanguageSelection = ({handleChange}) => {
             <option value="ja">Japanese</option>
             <option value="roomaji">Roomaji</option>
             <option value="ko">Korean</option>
+            <option value="zh-Hans">Simplified Chinese</option>
+            <option value="zh-Hant">Traditional Chinese</option>
+            <option value="ja-Hrkt">Kana Japanese</option>
         </select>
     </div>;
 };

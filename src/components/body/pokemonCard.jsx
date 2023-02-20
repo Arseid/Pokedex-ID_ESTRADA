@@ -19,13 +19,16 @@ const PokemonCard = ({number, name, imageSrc, types, selectedLanguage}) => {
 
     const nameMatchSelectedLanguage = (name, selectedLanguage) => {
         let nameModified='';
-        if (selectedLanguage==='fr') nameModified=name.fr;
-        else if (selectedLanguage==='en') nameModified=name.en;
-        else if (selectedLanguage==='es') nameModified=name.es;
-        else if (selectedLanguage==='it') nameModified=name.it;
-        else if (selectedLanguage==='ja') nameModified=name.ja;
-        else if (selectedLanguage==='roomaji') nameModified=name.roomaji;
-        else if (selectedLanguage==='ko') nameModified=name.ko;
+        if (selectedLanguage==='fr') nameModified=name['fr'];
+        else if (selectedLanguage==='en') nameModified=name['en'];
+        else if (selectedLanguage==='es') nameModified=name['es'];
+        else if (selectedLanguage==='it') nameModified=name['it'];
+        else if (selectedLanguage==='ja') nameModified=name['ja'];
+        else if (selectedLanguage==='roomaji') nameModified=name['roomaji'];
+        else if (selectedLanguage==='ko') nameModified=name['ko'];
+        else if (selectedLanguage==='ja-Hrkt') nameModified=name['ja-Hrkt'];
+        else if (selectedLanguage==='zh-Hant') nameModified=name['zh-Hant'];
+        else if (selectedLanguage==='zh-Hans') nameModified=name['zh-Hans'];
         return nameModified
     }
 

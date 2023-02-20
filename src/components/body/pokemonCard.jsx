@@ -1,44 +1,39 @@
 import React from "react";
 import "../../style/pokemonCard.css";
 
-const PokemonCard = ({number, name, imageSrc, types, selectedLanguage}) => {
+const PokemonCard = ({number, name, imageSrc, types, selectedLanguage, pokemonTypes}) => {
 
-    const syntaxIdNumber = (number) => {
-        let numberModified='';
-        if (number<10) numberModified=`00${number.toString()}`;
-        else if (number<100) numberModified=`0${number.toString()}`;
-        else if (number>=100) numberModified=number;
-        return numberModified;
-    }
+    const showTypes = () => {
+        let showTypes;
+        let chosenTypes=[];
 
-    const showTypes = types.map((type) => (
-        <span>
-            <span className="PokemonCard-Type">{type.toUpperCase()}</span>
+        Object.keys(pokemonTypes).forEach((pokeTypes) => {
+            types.forEach((type) => {
+                if (pokeTypes===type) {
+                    chosenTypes.push(pokemonTypes[type])
+                }
+            })
+        })
+
+        console.log(chosenTypes);
+
+        showTypes=chosenTypes.map((type) => (
+            <span>
+            <span style={{backgroundColor: type['backgroundColor']}} className="PokemonCard-Type">
+                {type['translations'][selectedLanguage].toUpperCase()}</span>
         </span>
-    ));
+        ));
 
-    const nameMatchSelectedLanguage = (name, selectedLanguage) => {
-        let nameModified='';
-        if (selectedLanguage==='fr') nameModified=name['fr'];
-        else if (selectedLanguage==='en') nameModified=name['en'];
-        else if (selectedLanguage==='es') nameModified=name['es'];
-        else if (selectedLanguage==='it') nameModified=name['it'];
-        else if (selectedLanguage==='ja') nameModified=name['ja'];
-        else if (selectedLanguage==='roomaji') nameModified=name['roomaji'];
-        else if (selectedLanguage==='ko') nameModified=name['ko'];
-        else if (selectedLanguage==='ja-Hrkt') nameModified=name['ja-Hrkt'];
-        else if (selectedLanguage==='zh-Hant') nameModified=name['zh-Hant'];
-        else if (selectedLanguage==='zh-Hans') nameModified=name['zh-Hans'];
-        return nameModified
+        return showTypes;
     }
 
     return <div className="PokemonCard">
-        <span className="PokemonCard-Number">No.{syntaxIdNumber(number)}</span>
-        <span className="PokemonCard-Name">{nameMatchSelectedLanguage(name, selectedLanguage)}</span>
+        <span className="PokemonCard-Number">No.{number.toString().padStart(3,'0')}</span>
+        <span className="PokemonCard-Name">{name[selectedLanguage]}</span>
         <img className="PokemonCard-Image"
             src={imageSrc} alt=''/>
         <div className="PokemonCard-TypeList">
-            {showTypes}
+            {showTypes()}
         </div>
     </div>
 };

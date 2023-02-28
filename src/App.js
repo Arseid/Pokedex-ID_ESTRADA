@@ -2,6 +2,12 @@ import Header from "./components/header/header";
 import "./style/App.css";
 import React from "react";
 import PokemonListPage from "./components/body/pokemonListPage";
+import PokemonDetails from "./components/body/pokemonDetails";
+import {
+    BrowserRouter,
+    Route,
+    Routes
+} from "react-router-dom";
 
 function App() {
 
@@ -12,14 +18,19 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <Header handleChange={handleChange}/>
-            </header>
-            <div className="App-body">
-                <PokemonListPage selectedLanguage={selectedLanguage}/>
+        <BrowserRouter >
+            <div className="App">
+                <header className="App-header">
+                    <Header handleChange={handleChange}/>
+                </header>
+                <div className="App-body">
+                    <Routes>
+                        <Route path="/" element={<PokemonListPage selectedLanguage={selectedLanguage}/>} />
+                        <Route path="/:pokemonId" element={<PokemonDetails/>} />
+                    </Routes>
+                </div>
             </div>
-        </div>
+        </BrowserRouter>
     );
 }
 

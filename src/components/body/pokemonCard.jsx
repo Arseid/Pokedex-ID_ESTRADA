@@ -1,5 +1,6 @@
 import React from "react";
 import "../../style/pokemonCard.css";
+import { Link } from "react-router-dom";
 
 const PokemonCard = ({number, name, imageSrc, types, selectedLanguage, pokemonTypes}) => {
 
@@ -12,15 +13,17 @@ const PokemonCard = ({number, name, imageSrc, types, selectedLanguage, pokemonTy
     </span>
     ));
 
-    return <div className="PokemonCard">
-        <span className="PokemonCard-Number">No.{number.toString().padStart(3,'0')}</span>
-        <span className="PokemonCard-Name">{name[selectedLanguage]}</span>
-        <img className="PokemonCard-Image"
-            src={imageSrc} alt=''/>
-        <div className="PokemonCard-TypeList">
-            {showTypes}
+    return <Link to={`${number}`} style={{textDecoration: 'none', color: 'black'}}>
+        <div className="PokemonCard">
+            <span className="PokemonCard-Number">No.{number.toString().padStart(3,'0')}</span>
+            <span className="PokemonCard-Name">{name[selectedLanguage]}</span>
+            <img className="PokemonCard-Image"
+                 src={imageSrc} alt=''/>
+            <div className="PokemonCard-TypeList">
+                {showTypes}
+            </div>
         </div>
-    </div>
+    </Link>
 };
 
 export default PokemonCard;

@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "./searchBar";
-import PokemonList from "./pokemonList";
-import '../../style/pokemonListPage.css';
+import SearchBar from "../searchBar/searchBar";
+import PokemonList from "../pokemonList/pokemonList";
+import './pokemonListPage.css';
 
 const PokemonListPage = ({selectedLanguage}) => {
 

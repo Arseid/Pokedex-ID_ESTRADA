@@ -1,8 +1,8 @@
 import Header from "./components/header/header";
-import "./style/App.css";
+import "./App.css";
 import React from "react";
-import PokemonListPage from "./components/body/pokemonListPage";
-import PokemonDetails from "./components/body/pokemonDetails";
+import PokemonListPage from "./components/pokemonListPage/pokemonListPage";
+import PokemonDetails from "./components/pokemonDetails/pokemonDetails";
 import {
     BrowserRouter,
     Route,

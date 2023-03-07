@@ -1,7 +1,7 @@
 import React from "react";
 import {useParams} from "react-router-dom";
 import pokemonList from "../../ressources/pokemons.json";
-import "../../style/pokemonDetails.css";
+import "./pokemonDetails.css";
 
 const PokemonDetails = () => {
 

@@ -1,5 +1,5 @@
 import React from "react";
-import '../../style/searchBar.css';
+import './searchBar.css';
 
 const SearchBar = ({searchInputValue, searchPokemon}) => {
 

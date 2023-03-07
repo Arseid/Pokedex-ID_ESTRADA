@@ -1,5 +1,5 @@
 import React from "react";
-import "../../style/pokemonCard.css";
+import "./pokemonCard.css";
 import { Link } from "react-router-dom";
 
 const PokemonCard = ({number, name, imageSrc, types, selectedLanguage, pokemonTypes}) => {

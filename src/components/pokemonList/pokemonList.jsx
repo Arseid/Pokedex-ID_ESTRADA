@@ -1,6 +1,6 @@
 import React from "react";
-import "../../style/pokemonList.css";
-import PokemonCard from "./pokemonCard";
+import "./pokemonList.css";
+import PokemonCard from "../pokemonCard/pokemonCard";
 import Youtube from 'react-youtube';
 
 const PokemonList = ({selectedLanguage, searchInputValue, pokemonList, pokemonTypes}) => {

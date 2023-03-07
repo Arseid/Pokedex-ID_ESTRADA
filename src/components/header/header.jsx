@@ -1,7 +1,7 @@
 import React from "react";
-import Logo from "./logo";
-import LanguageSelection from "./languageSelection";
-import "../../style/header.css";
+import Logo from "../logo/logo";
+import LanguageSelection from "../languageSelection/languageSelection";
+import "./header.css";
 
 const Header = ({handleChange}) => {
     return <div className="Header-Container">

@@ -1,6 +1,6 @@
 import React from "react";
 import {BiWorld} from 'react-icons/bi';
-import "../../style/languageSelection.css";
+import "./languageSelection.css";
 
 const LanguageSelection = ({handleChange}) => {
 

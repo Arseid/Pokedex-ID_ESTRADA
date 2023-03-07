@@ -1,11 +1,11 @@
 import React, {useContext} from "react";
 import "./pokemonCard.css";
 import { Link } from "react-router-dom";
-import {PokemonContext} from "../../context/context";
+import {LanguageContext} from "../../context/context";
 
 const PokemonCard = ({number, name, imageSrc, types, pokemonTypes}) => {
 
-    const {selectedLanguage} = useContext(PokemonContext);
+    const {selectedLanguage} = useContext(LanguageContext);
 
     const showTypes = types.map((type) => {
         return pokemonTypes[type];

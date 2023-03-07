@@ -2,11 +2,11 @@ import React, {useContext} from "react";
 import "./pokemonList.css";
 import PokemonCard from "../pokemonCard/pokemonCard";
 import Youtube from 'react-youtube';
-import {PokemonContext} from "../../context/context";
+import {LanguageContext} from "../../context/context";
 
 const PokemonList = ({searchInputValue, pokemonList, pokemonTypes}) => {
 
-    const {selectedLanguage} = useContext(PokemonContext);
+    const {selectedLanguage} = useContext(LanguageContext);
 
     //EASTER EGG Roxane <3
     const easterEggGf = `3T1c7GkzRQQ`;

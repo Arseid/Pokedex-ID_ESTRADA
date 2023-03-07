@@ -8,7 +8,7 @@ import {
     Route,
     Routes
 } from "react-router-dom";
-import {PokemonContext} from "./context/context";
+import {LanguageContext, PokemonContext} from "./context/context";
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
 
     return (
         <BrowserRouter >
-            <PokemonContext.Provider value={{selectedLanguage,setSelectedLanguage}}>
+            <LanguageContext.Provider value={{selectedLanguage,setSelectedLanguage}}>
                 <div className="App">
                     <header className="App-header">
                         <Header/>
@@ -28,7 +28,7 @@ function App() {
                         </Routes>
                     </div>
                 </div>
-            </PokemonContext.Provider>
+            </LanguageContext.Provider>
         </BrowserRouter>
     );
 }

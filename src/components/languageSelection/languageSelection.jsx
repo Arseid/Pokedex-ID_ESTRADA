@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import {BiWorld} from 'react-icons/bi';
 import "./languageSelection.css";
-import {PokemonContext} from "../../context/context";
+import {LanguageContext} from "../../context/context";
 
 const LanguageSelection = () => {
-    const {setSelectedLanguage} = useContext(PokemonContext)
+    const {setSelectedLanguage} = useContext(LanguageContext)
 
     return <div className="LanguageSelect-Container">
         <BiWorld color={"white"} className="LanguageSelect-WorldIcon" size={35}/>

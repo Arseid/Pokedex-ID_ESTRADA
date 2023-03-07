@@ -13,7 +13,7 @@ const PokemonCard = ({number, name, imageSrc, types, selectedLanguage, pokemonTy
     </span>
     ));
 
-    return <Link to={`${number}`} style={{textDecoration: 'none', color: 'black'}}>
+    return <Link to={`pokemon/${number}`} style={{textDecoration: 'none', color: 'black'}}>
         <div className="PokemonCard">
             <span className="PokemonCard-Number">No.{number.toString().padStart(3,'0')}</span>
             <span className="PokemonCard-Name">{name[selectedLanguage]}</span>

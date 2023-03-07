@@ -2,11 +2,12 @@ import React, {useContext} from "react";
 import "./pokemonList.css";
 import PokemonCard from "../pokemonCard/pokemonCard";
 import Youtube from 'react-youtube';
-import {LanguageContext} from "../../context/context";
+import {LanguageContext, PokemonContext} from "../../context/context";
 
-const PokemonList = ({searchInputValue, pokemonList, pokemonTypes}) => {
+const PokemonList = ({searchInputValue}) => {
 
     const {selectedLanguage} = useContext(LanguageContext);
+    const {pokemonList} = React.useContext(PokemonContext);
 
     //EASTER EGG Roxane <3
     const easterEggGf = `3T1c7GkzRQQ`;
@@ -17,8 +18,7 @@ const PokemonList = ({searchInputValue, pokemonList, pokemonTypes}) => {
 
         if (searchValue==='') {
             shownPokemonList = pokemonList.map((pokemon) => (
-                <PokemonCard name={pokemon.names} types={pokemon.types} number={pokemon.id} imageSrc={pokemon.image}
-                             pokemonTypes={pokemonTypes}/>
+                <PokemonCard name={pokemon.names} types={pokemon.types} number={pokemon.id} imageSrc={pokemon.image}/>
             ));
         }
         else {
@@ -29,8 +29,7 @@ const PokemonList = ({searchInputValue, pokemonList, pokemonTypes}) => {
                         filteredPokemonList.push(pokemon)
                 })
                 shownPokemonList = filteredPokemonList.map((pokemon) => (
-                    <PokemonCard name={pokemon.names} types={pokemon.types} number={pokemon.id} imageSrc={pokemon.image}
-                                 pokemonTypes={pokemonTypes}/>
+                    <PokemonCard name={pokemon.names} types={pokemon.types} number={pokemon.id} imageSrc={pokemon.image}/>
                 ))
             }
             else {

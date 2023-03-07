@@ -1,11 +1,12 @@
 import React from "react";
 import {useParams} from "react-router-dom";
-import pokemonList from "../../ressources/pokemons.json";
 import "./pokemonDetails.css";
+import {PokemonContext} from "../../context/context";
 
 const PokemonDetails = () => {
 
     const {pokemonId} = useParams();
+    const {pokemonList} = React.useContext(PokemonContext);
     const shownPokemon = pokemonList[pokemonId-1];
 
     return <div className='PokemonDetails'>

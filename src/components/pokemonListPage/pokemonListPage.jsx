@@ -2,29 +2,12 @@ import React from "react";
 import SearchBar from "../searchBar/searchBar";
 import PokemonList from "../pokemonList/pokemonList";
 import './pokemonListPage.css';
+import {PokemonContext} from "../../context/context";
 
 const PokemonListPage = () => {
 
-    const pokemonListURL = 'https://pokedex-jgabriele.vercel.app/pokemons.json';
-    const pokemonTypesURL = 'https://pokedex-jgabriele.vercel.app/types.json';
-    const [pokemonList, setPokemonList] = React.useState([]);
-    const [pokemonTypes, setPokemonTypes] = React.useState({});
     const [searchInputValue, setSearchInputValue] = React.useState('');
-
-    React.useEffect(() => {
-        fetch(pokemonListURL)
-            .then((response) => response.json())
-            .then((response) => setPokemonList(response))
-            .catch((e) => {
-                console.log("Error"+e);
-            });
-        fetch(pokemonTypesURL)
-            .then((response) => response.json())
-            .then((response) => setPokemonTypes(response))
-            .catch((e) => {
-                console.log("Error"+e);
-            });
-    },[]);
+    const {pokemonList, pokemonTypes} = React.useContext(PokemonContext);
 
     const searchPokemon = (e) => {
         setSearchInputValue(e.target.value);
@@ -37,8 +20,7 @@ const PokemonListPage = () => {
                 <div></div>
             </div>
             :
-            <PokemonList searchInputValue={searchInputValue}
-                         pokemonList={pokemonList} pokemonTypes={pokemonTypes}/>
+            <PokemonList searchInputValue={searchInputValue}/>
         }
     </div>;
 };

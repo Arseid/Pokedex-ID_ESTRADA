@@ -13,6 +13,25 @@ import {LanguageContext, PokemonContext} from "./context/context";
 function App() {
 
     const [selectedLanguage, setSelectedLanguage] = React.useState("fr");
+    const pokemonListURL = 'https://pokedex-jgabriele.vercel.app/pokemons.json';
+    const pokemonTypesURL = 'https://pokedex-jgabriele.vercel.app/types.json';
+    const [pokemonList, setPokemonList] = React.useState([]);
+    const [pokemonTypes, setPokemonTypes] = React.useState({});
+
+    React.useEffect(() => {
+        fetch(pokemonListURL)
+            .then((response) => response.json())
+            .then((response) => setPokemonList(response))
+            .catch((e) => {
+                console.log("Error"+e);
+            });
+        fetch(pokemonTypesURL)
+            .then((response) => response.json())
+            .then((response) => setPokemonTypes(response))
+            .catch((e) => {
+                console.log("Error"+e);
+            });
+    },[]);
 
     return (
         <BrowserRouter >
@@ -22,10 +41,12 @@ function App() {
                         <Header/>
                     </header>
                     <div className="App-body">
-                        <Routes>
-                            <Route path="/" element={<PokemonListPage/>} />
-                            <Route path="/pokemon/:pokemonId" element={<PokemonDetails/>} />
-                        </Routes>
+                        <PokemonContext.Provider value={{pokemonList, pokemonTypes}}>
+                            <Routes>
+                                <Route path="/" element={<PokemonListPage/>} />
+                                <Route path="/pokemon/:pokemonId" element={<PokemonDetails/>} />
+                            </Routes>
+                        </PokemonContext.Provider>
                     </div>
                 </div>
             </LanguageContext.Provider>

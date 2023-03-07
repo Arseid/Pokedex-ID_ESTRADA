@@ -8,28 +8,27 @@ import {
     Route,
     Routes
 } from "react-router-dom";
+import {PokemonContext} from "./context/context";
 
 function App() {
 
     const [selectedLanguage, setSelectedLanguage] = React.useState("fr");
 
-    const handleChange = (e) => {
-        setSelectedLanguage(e.target.value);
-    }
-
     return (
         <BrowserRouter >
-            <div className="App">
-                <header className="App-header">
-                    <Header handleChange={handleChange}/>
-                </header>
-                <div className="App-body">
-                    <Routes>
-                        <Route path="/" element={<PokemonListPage selectedLanguage={selectedLanguage}/>} />
-                        <Route path="/pokemon/:pokemonId" element={<PokemonDetails/>} />
-                    </Routes>
+            <PokemonContext.Provider value={{selectedLanguage,setSelectedLanguage}}>
+                <div className="App">
+                    <header className="App-header">
+                        <Header/>
+                    </header>
+                    <div className="App-body">
+                        <Routes>
+                            <Route path="/" element={<PokemonListPage selectedLanguage={selectedLanguage}/>} />
+                            <Route path="/pokemon/:pokemonId" element={<PokemonDetails/>} />
+                        </Routes>
+                    </div>
                 </div>
-            </div>
+            </PokemonContext.Provider>
         </BrowserRouter>
     );
 }

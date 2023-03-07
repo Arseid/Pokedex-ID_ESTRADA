@@ -3,7 +3,7 @@ import SearchBar from "../searchBar/searchBar";
 import PokemonList from "../pokemonList/pokemonList";
 import './pokemonListPage.css';
 
-const PokemonListPage = ({selectedLanguage}) => {
+const PokemonListPage = () => {
 
     const pokemonListURL = 'https://pokedex-jgabriele.vercel.app/pokemons.json';
     const pokemonTypesURL = 'https://pokedex-jgabriele.vercel.app/types.json';
@@ -37,7 +37,7 @@ const PokemonListPage = ({selectedLanguage}) => {
                 <div></div>
             </div>
             :
-            <PokemonList selectedLanguage={selectedLanguage} searchInputValue={searchInputValue}
+            <PokemonList searchInputValue={searchInputValue}
                          pokemonList={pokemonList} pokemonTypes={pokemonTypes}/>
         }
     </div>;

@@ -23,7 +23,7 @@ function App() {
                     </header>
                     <div className="App-body">
                         <Routes>
-                            <Route path="/" element={<PokemonListPage selectedLanguage={selectedLanguage}/>} />
+                            <Route path="/" element={<PokemonListPage/>} />
                             <Route path="/pokemon/:pokemonId" element={<PokemonDetails/>} />
                         </Routes>
                     </div>

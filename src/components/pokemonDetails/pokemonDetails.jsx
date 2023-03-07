@@ -1,41 +1,63 @@
 import React from "react";
 import {useParams} from "react-router-dom";
 import "./pokemonDetails.css";
-import {PokemonContext} from "../../context/context";
+import {LanguageContext, PokemonContext} from "../../context/context";
 
 const PokemonDetails = () => {
 
     const {pokemonId} = useParams();
-    const {pokemonList} = React.useContext(PokemonContext);
+    const {selectedLanguage} = React.useContext(LanguageContext);
+    const {pokemonList, pokemonTypes} = React.useContext(PokemonContext);
     const shownPokemon = pokemonList[pokemonId-1];
 
+    const showTypes = shownPokemon['types'].map((type) => {
+        return pokemonTypes[type];
+    }).map((type) => (
+        <span style={{backgroundColor: type['backgroundColor']}} className='PokemonDetails-TypesInfo'>
+            {type['translations'][selectedLanguage].toUpperCase()}</span>
+    ));
+
+    const showMoves = shownPokemon['moves'].map((move) => (
+        <span className='PokemonDetails-MovesInfo'>{move.toUpperCase()}</span>
+    ));
+
     return <div className='PokemonDetails'>
-        <span className="PokemonDetails-Title">{shownPokemon.names["en"]} No.{pokemonId.toString().padStart(3,'0')}</span>
-        <div className="PokemonDetails-Details">
-            <div>
-
-
-                <div className="PokemonDetails-Body">
-                    <span className='PokemonDetails-Body-SubTitle'>Height</span>
-                    <b>{shownPokemon.height}</b>
-                </div>
-                <div className="PokemonDetails-Body">
-                    <span className='PokemonDetails-Body-SubTitle'>Weight</span>
-                    <b>{shownPokemon.weight}</b>
-                </div>
-                <div className="PokemonDetails-Body">
-                    <span className='PokemonDetails-Body-SubTitle'>Types</span>
-                    <div className="PokemonDetails-TypesList">
-                        {shownPokemon.types}
+        <div className='PokemonDetails-Body'>
+            <span className="PokemonDetails-Title">
+                {shownPokemon['names'][selectedLanguage]} No.{pokemonId.toString().padStart(3,'0')}
+            </span>
+            <div className="PokemonDetails-Info">
+                <div className="PokemonDetails-Left">
+                    <div className="PokemonDetails-Feature">
+                        <span className='PokemonDetails-TitleInfo'>Height</span>
+                        <div className='PokemonDetails-TextInfo'>
+                            {shownPokemon['height']}
+                        </div>
+                    </div>
+                    <div className="PokemonDetails-Feature">
+                        <span className='PokemonDetails-TitleInfo'>Weight</span>
+                        <div className='PokemonDetails-TextInfo'>
+                            {shownPokemon['weight']}
+                        </div>
+                    </div>
+                    <div className="PokemonDetails-Feature">
+                        <span className='PokemonDetails-TitleInfo'>Types</span>
+                        <div className='PokemonDetails-Types'>
+                            {showTypes}
+                        </div>
                     </div>
                 </div>
-
-
+                <div className="PokemonDetails-Right">
+                    <img className='PokemonDetails-Image' src={shownPokemon['image']} alt=''/>
+                </div>
             </div>
-            <img className="PokemonDetails-Image"
-                 src={shownPokemon.image} alt=''/>
+            <div className='PokemonDetails-Bot'>
+                <span className='PokemonDetails-TitleInfo'>Moves</span>
+                <div className='PokemonDetails-Moves'>
+                    {showMoves}
+                </div>
+            </div>
         </div>
-
     </div>;
 };
 

@@ -12,17 +12,16 @@ const LanguageSelection = () => {
         <Box display="flex" alignItems="center">
             <BiWorld
                 color={"white"}
-                className="LanguageSelect-WorldIcon"
                 size={35}
-                sx={{ mr: 1 }}
+                style={{ marginRight: "1rem" }}
             />
             <Select
                 onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="LanguageSelect-Select"
                 defaultValue=""
+                variant="outlined"
                 sx={{
                     "& .MuiSelect-select": {
-                        fontSize: "2rem",
+                        fontSize: "1.5rem",
                         textAlign: "center",
                         display: "flex",
                         alignItems: "center",
@@ -30,7 +29,6 @@ const LanguageSelection = () => {
                         color: "white"
                     },
                     "& .MuiOutlinedInput-root": {
-                        borderColor: "white",
                         "&:hover": {
                             borderColor: "white"
                         },
@@ -43,16 +41,16 @@ const LanguageSelection = () => {
                     }
                 }}
             >
-                <MenuItem value="fr">Français</MenuItem>
-                <MenuItem value="en">English</MenuItem>
-                <MenuItem value="es">Español</MenuItem>
-                <MenuItem value="it">Italiano</MenuItem>
-                <MenuItem value="ja">Japanese</MenuItem>
-                <MenuItem value="roomaji">Roomaji</MenuItem>
-                <MenuItem value="ko">Korean</MenuItem>
-                <MenuItem value="zh-Hans">Simplified Chinese</MenuItem>
-                <MenuItem value="zh-Hant">Traditional Chinese</MenuItem>
-                <MenuItem value="ja-Hrkt">Kana Japanese</MenuItem>
+                <MenuItem value="fr" sx={{fontSize: "1.5rem"}}>Français</MenuItem>
+                <MenuItem value="en" sx={{fontSize: "1.5rem"}}>English</MenuItem>
+                <MenuItem value="es" sx={{fontSize: "1.5rem"}}>Español</MenuItem>
+                <MenuItem value="it" sx={{fontSize: "1.5rem"}}>Italiano</MenuItem>
+                <MenuItem value="ja" sx={{fontSize: "1.5rem"}}>Japanese</MenuItem>
+                <MenuItem value="roomaji" sx={{fontSize: "1.5rem"}}>Roomaji</MenuItem>
+                <MenuItem value="ko" sx={{fontSize: "1.5rem"}}>Korean</MenuItem>
+                <MenuItem value="zh-Hans" sx={{fontSize: "1.5rem"}}>Simplified Chinese</MenuItem>
+                <MenuItem value="zh-Hant" sx={{fontSize: "1.5rem"}}>Traditional Chinese</MenuItem>
+                <MenuItem value="ja-Hrkt" sx={{fontSize: "1.5rem"}}>Kana Japanese</MenuItem>
             </Select>
         </Box>
     );
